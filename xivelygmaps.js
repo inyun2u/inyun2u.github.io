@@ -72,6 +72,7 @@ var xivelyGmaps = (function ($) {
                     self.setMarker(position, markerTitle, feedData);
 
                 } else if ((previousValue !== cur_value)) {
+                    marker.setMap(null);
                     self.setMarker(position, markerTitle, feedData);
                 }
                 previousValue = cur_value;
