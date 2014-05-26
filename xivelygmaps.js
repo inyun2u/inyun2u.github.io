@@ -1,7 +1,6 @@
 /**
  * Created by inyun2u on 14. 5. 19.
- */
-﻿// xively-gmaps
+ */// xively-gmaps
 // version 0.1.1
 // (c) 2013 Xively Ltd (LogMeIn Inc.)
 // http://xively.github.com/xively-gmaps/
@@ -71,9 +70,9 @@ var xivelyGmaps = (function ($) {
                     map = new google.maps.Map($(mapElement)[0], mapOptions);
                     self.setMarker(position, markerTitle, feedData);
 
-                } else if ((previousValue !== cur_value)) {
-                    marker.setMap(null);
-                    self.setMarker(position, markerTitle, feedData);
+                } else if ((previousValue !== cur_value)) { //값의 변화가 있을 경우
+                    marker.setMap(null); //현재 마커와 지도의 매핑 해제
+                    self.setMarker(position, markerTitle, feedData); //새로운 마커를 생성하여 등록
                 }
                 previousValue = cur_value;
                 previousLocation = location;
