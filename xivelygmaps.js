@@ -51,14 +51,14 @@ var xivelyGmaps = (function ($) {
         renderMap: function (feedData) {
             var self = this;
             var location = feedData.location;
-            var cur_value = feedData.datastreams[4].current_value;
+            var cur_value = feedData.datastreams[2].current_value;
 
             if (feedData) {
                 var position = new google.maps.LatLng(location.lat, location.lon);
                 var markerTitle = "Feed id: " + feedData.id + "\n" +
                     "Latitude: " + location.lat + "\n" +
                     "Longitude: " + location.lon + "\n" +
-                    "value" + feedData.datastreams[4].current_value;
+                    "value" + feedData.datastreams[2].current_value;
 
                 if (typeof (previousLocation) === 'undefined') {
                     var mapOptions = {
@@ -96,7 +96,7 @@ var xivelyGmaps = (function ($) {
                     path: google.maps.SymbolPath.CIRCLE,
                     fillColor: 'red',
                     fillOpacity: 1,
-                    scale: Math.log(feedData.datastreams[4].current_value) * 10 / Math.PI,
+                    scale: Math.log(feedData.datastreams[2].current_value) * 10 / Math.PI,
                     strokeColor: 'white',
                     strokeWeight: .5
                 }
@@ -104,7 +104,7 @@ var xivelyGmaps = (function ($) {
             //}
 
         }
-    }
+    };
 
     return methods;
 })(jQuery);
