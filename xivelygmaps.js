@@ -54,6 +54,7 @@ var xivelyGmaps = (function ($) {
             var location = feedData.location;
             var cur_value = feedData.datastreams[0].current_value;
 
+
             if (feedData) {
                 var position = new google.maps.LatLng(feedData.datastreams[1].current_value, feedData.datastreams[2].current_value);
                 var position1 = new google.maps.LatLng(feedData.datastreams[4].current_value, feedData.datastreams[5].current_value);
