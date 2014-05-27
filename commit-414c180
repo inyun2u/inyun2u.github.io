@@ -1,0 +1,17 @@
+commit 414c1801e46b654903e3c7dcaf6a55f0159692cc
+Author: JeongHwi_Ra <inyun2uspam@gmail.com>
+Date:   Tue May 27 14:19:12 2014 +0900
+
+    added goodbye message on openlabpc
+
+diff --git a/index.html b/index.html
+index eefe332..27c7f74 100644
+--- a/index.html
++++ b/index.html
+@@ -27,5 +27,6 @@
+     xivelyGmaps.setKey("iQVFd0Oi8lPmR9fJvTR3ywwzr1UATggRw9XMZdFRR9vOjIEj");
+     var responseContent = google.maps.event.addDomListener(window, 'load', xivelyGmaps.subscribe("1340702799"));
+ </script>
++    <p> so now good bye!</p>
+ </body>
+ </html>
