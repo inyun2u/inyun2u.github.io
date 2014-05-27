@@ -1,7 +1,6 @@
 /**
  * Created by inyun2u on 14. 5. 19.
- */
-﻿// xively-gmaps
+ */// xively-gmaps
 // version 0.1.1
 // (c) 2013 Xively Ltd (LogMeIn Inc.)
 // http://xively.github.com/xively-gmaps/
@@ -17,6 +16,7 @@ var xivelyGmaps = (function ($) {
         previousValue,
         map,
         marker,
+        markers=[],
         mapElement = "#map-canvas";
 
 
@@ -52,14 +52,28 @@ var xivelyGmaps = (function ($) {
         renderMap: function (feedData) {
             var self = this;
             var location = feedData.location;
-            var cur_value = feedData.datastreams[4].current_value;
+<<<<<<< HEAD
+            var cur_value = feedData.datastreams[0].current_value;
+
+=======
+            var cur_value = feedData.datastreams[2].current_value;
+>>>>>>> origin/master
 
             if (feedData) {
-                var position = new google.maps.LatLng(location.lat, location.lon);
+                var position = new google.maps.LatLng(feedData.datastreams[1].current_value, feedData.datastreams[2].current_value);
+                var position1 = new google.maps.LatLng(feedData.datastreams[4].current_value, feedData.datastreams[5].current_value);
                 var markerTitle = "Feed id: " + feedData.id + "\n" +
                     "Latitude: " + location.lat + "\n" +
                     "Longitude: " + location.lon + "\n" +
-                    "value" + feedData.datastreams[4].current_value;
+<<<<<<< HEAD
+                    "value" + feedData.datastreams[0].current_value;
+                var markerTitle1 = "Feed id: " + feedData.id + "\n" +
+                    "Latitude: " + location.lat + "\n" +
+                    "Longitude: " + location.lon + "\n" +
+                    "value" + feedData.datastreams[3].current_value;
+=======
+                    "value" + feedData.datastreams[2].current_value;
+>>>>>>> origin/master
 
                 if (typeof (previousLocation) === 'undefined') {
                     var mapOptions = {
@@ -69,11 +83,17 @@ var xivelyGmaps = (function ($) {
                     };
 
                     map = new google.maps.Map($(mapElement)[0], mapOptions);
-                    self.setMarker(position, markerTitle, feedData);
+                    self.setMarker(position, markerTitle, feedData.datastreams[0].current_value);
+                    self.setMarker(position1,markerTitle1,feedData.datastreams[3].current_value);
 
-                } else if ((previousValue !== cur_value)) {
-                    marker.setMap(null);
-                    self.setMarker(position, markerTitle, feedData);
+
+                } else if ((previousValue !== cur_value)) { //값의 변화가 있을 경우
+                    markers[0].setMap(null);
+                    markers[1].setMap(null);
+                    markers=[];//현재 마커와 지도의 매핑 해제
+
+                    self.setMarker(position, markerTitle, feedData.datastreams[0].current_value);
+                    self.setMarker(position1,markerTitle1,feedData.datastreams[3].current_value);
                 }
                 previousValue = cur_value;
                 previousLocation = location;
@@ -86,7 +106,7 @@ var xivelyGmaps = (function ($) {
             return location && location.lat && location.lon;
         },
 
-        setMarker: function (position, title, feedData) {
+        setMarker: function (position, title, value) {
 
             marker = new google.maps.Marker({
                 position: position,
@@ -97,15 +117,19 @@ var xivelyGmaps = (function ($) {
                     path: google.maps.SymbolPath.CIRCLE,
                     fillColor: 'red',
                     fillOpacity: 1,
-                    scale: Math.log(feedData.datastreams[4].current_value) * 10 / Math.PI,
+<<<<<<< HEAD
+                    scale: Math.log(value) * 10 / Math.PI,
+=======
+                    scale: Math.log(feedData.datastreams[2].current_value) * 10 / Math.PI,
+>>>>>>> origin/master
                     strokeColor: 'white',
                     strokeWeight: .5
                 }
             });
-            //}
+            markers.push(marker);
 
         }
-    }
+    };
 
     return methods;
 })(jQuery);
