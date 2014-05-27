@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="05eec796-e043-4ad3-8a73-5a740e4e7b6c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\inyun2u.github.io\xivelyrmaps.js" afterPath="$PROJECT_DIR$/xivelygmaps.js" />
     </list>
     <ignored path="inyun2u.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,6 +20,29 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="xivelygmaps.js" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/xivelygmaps.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.24084507" vertical-offset="437" max-vertical-offset="2185">
+                    <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
+>>>>>>> origin/master
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="inyun2u.github.io" />
@@ -28,8 +52,13 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="665">
               <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+=======
+            <state vertical-scroll-proportion="0.4548803" vertical-offset="0" max-vertical-offset="665">
+              <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+>>>>>>> origin/master
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -121,8 +150,13 @@
         <option value="maps.gstatic.com/cat_js/intl/ko_kr/mapfiles/api-3/17/0/%7Bcontrols,stats%7D.js" />
         <option value="maps.gstatic.com/intl/ko_kr/mapfiles/api-3/17/1/main.js" />
         <option value="$PROJECT_DIR$/xivelyGmaps.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/xivelygmaps.js" />
+=======
+        <option value="$PROJECT_DIR$/xivelygmaps.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -290,6 +324,7 @@
       <updated>1400551912594</updated>
     </task>
     <task id="LOCAL-00004" summary="start">
+<<<<<<< HEAD
       <created>1401105270095</created>
       <updated>1401105270095</updated>
     </task>
@@ -298,6 +333,20 @@
       <updated>1401160528272</updated>
     </task>
     <option name="localTasksCounter" value="6" />
+=======
+      <created>1401105535703</created>
+      <updated>1401105535703</updated>
+    </task>
+    <task id="LOCAL-00005" summary="start">
+      <created>1401105599646</created>
+      <updated>1401105599646</updated>
+    </task>
+    <task id="LOCAL-00006" summary="start">
+      <created>1401105745602</created>
+      <updated>1401105745602</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+>>>>>>> origin/master
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -324,6 +373,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.326257" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -331,10 +381,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09650181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23856209" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32700893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24909529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39978212" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23910615" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -374,8 +433,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="665">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="665">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+>>>>>>> origin/master
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -387,6 +451,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/xivelygmaps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="2413">
@@ -400,6 +465,8 @@
         <state />
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="http://mt0.googleapis.com/mapslt/ft?hl=ko-KR&amp;lyrs=m%40262000000%7Csalt%3A1484351913&amp;las=vwuvvuvtvuttu,vwuvvuvtvuttw,vwuvvuvtvutvu,vwuvvuvtvutvw,vwuvvuvtvuvtu&amp;z=13&amp;src=apiv3&amp;xc=1&amp;style=47%2C37%7Csmartmaps&amp;callback=_xdc_._v4d38q&amp;token=72854">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -593,15 +660,29 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
+=======
+    <entry file="file://$PROJECT_DIR$/xivelygmaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24084507" vertical-offset="437" max-vertical-offset="2185">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding />
+        </state>
+>>>>>>> origin/master
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="665">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.4548803" vertical-offset="0" max-vertical-offset="665">
+          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+>>>>>>> origin/master
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

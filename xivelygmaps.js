@@ -52,8 +52,12 @@ var xivelyGmaps = (function ($) {
         renderMap: function (feedData) {
             var self = this;
             var location = feedData.location;
+<<<<<<< HEAD
             var cur_value = feedData.datastreams[0].current_value;
 
+=======
+            var cur_value = feedData.datastreams[2].current_value;
+>>>>>>> origin/master
 
             if (feedData) {
                 var position = new google.maps.LatLng(feedData.datastreams[1].current_value, feedData.datastreams[2].current_value);
@@ -61,11 +65,15 @@ var xivelyGmaps = (function ($) {
                 var markerTitle = "Feed id: " + feedData.id + "\n" +
                     "Latitude: " + location.lat + "\n" +
                     "Longitude: " + location.lon + "\n" +
+<<<<<<< HEAD
                     "value" + feedData.datastreams[0].current_value;
                 var markerTitle1 = "Feed id: " + feedData.id + "\n" +
                     "Latitude: " + location.lat + "\n" +
                     "Longitude: " + location.lon + "\n" +
                     "value" + feedData.datastreams[3].current_value;
+=======
+                    "value" + feedData.datastreams[2].current_value;
+>>>>>>> origin/master
 
                 if (typeof (previousLocation) === 'undefined') {
                     var mapOptions = {
@@ -109,7 +117,11 @@ var xivelyGmaps = (function ($) {
                     path: google.maps.SymbolPath.CIRCLE,
                     fillColor: 'red',
                     fillOpacity: 1,
+<<<<<<< HEAD
                     scale: Math.log(value) * 10 / Math.PI,
+=======
+                    scale: Math.log(feedData.datastreams[2].current_value) * 10 / Math.PI,
+>>>>>>> origin/master
                     strokeColor: 'white',
                     strokeWeight: .5
                 }
@@ -117,7 +129,7 @@ var xivelyGmaps = (function ($) {
             markers.push(marker);
 
         }
-    }
+    };
 
     return methods;
 })(jQuery);
