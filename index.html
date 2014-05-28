@@ -5,33 +5,31 @@
     <title>Xively Gmaps Example</title>
     <meta name="description" content="Xively Gmaps Example">
     <meta name="author" content="Xively Ltd.">
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+    </style>
+
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.js"></script>
-    <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.js"></script>
+    <script src="jquery-2.1.1-vsdoc.js"></script>
+    <script src="jquery-2.1.1.js"></script>
+    <script src="xivelyjs-1.0.4.js"></script>
     <!--<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelygmaps-0.1.1.min.js"></script>-->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="xivelygmaps.js"></script>
-
+    <!-- <script src="xivelygmaps.js"></script> -->
+    <script src="javascripts/synchronous.js"></script>
     <!--<script src="xivelygmap1.js"></script>-->
 
 </head>
 <body>
-<p> master standing by for merging</p>
-<!--only px no % .-->
-<p> go master!!more!! <p>
-<p>welcome to smart map!</p>
-<div id="map-canvas" style="width:800px;height:600px;"></div>
 
-<script type="text/javascript">
-    xivelyGmaps.setKey("iQVFd0Oi8lPmR9fJvTR3ywwzr1UATggRw9XMZdFRR9vOjIEj");
-    var responseContent = google.maps.event.addDomListener(window, 'load', xivelyGmaps.subscribe("1340702799"));
-</script>
-<p>ricpc owned the world</p>
-<p>ricpc 2nd job</p>
-<p> openlab job stand by</p>
-<p> openlab job separate 2nd</p>
+<div id="map-canvas" ></div>
+
+
 </body>
 </html>
