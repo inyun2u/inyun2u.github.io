@@ -93,7 +93,7 @@
                 return log("(xivelyJS) ::: No API key ::: Set your API key first with xively.setKey( YOUR_API_KEY ) before using any methods. Check docs for more info.");
             }
             if (!settings.url) {
-                return;
+                return log("(xivelyJS) ::: No URL ::: ");
             }
             settings.type = settings.type.toUpperCase();
             if (settings.type === "PUT" || settings.type === "POST") {
@@ -402,6 +402,7 @@
                 always: function(data) {
                     $this.each(function() {
                         $(this).html(data.current_value);
+                        console.log(data.current_value);
                     });
                 }
             });

@@ -14,10 +14,11 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
-xively.setKey("iQVFd0Oi8lPmR9fJvTR3ywwzr1UATggRw9XMZdFRR9vOjIEj");
 
-xively.feed.get("1340702799");
-var PARSEDresponse = JSON.parse(JSONresponse);
-console.log(PARSEDresponse);
-xively.setKey("QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay");
-xively.feed.get("1358642428");
+xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
+xively.feed.get("1340702799",function(feedData){
+    console.log(feedData.datastreams[0].current_value);
+});
+
+
+
