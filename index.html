@@ -1,20 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <script src="jquery-2.1.1.js"></script>
-    <script src="xivelyjs-1.0.4.js"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button { color: red;}
+    </style>
+
 </head>
 <body>
-<div id="map-canvas"></div>
-<script type="text/javascript">
-    xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
-    xively.datastream.subscribe( "1340702799", "sensor_reading", function( event, data ) {
-        console.log( data.current_value ); // Logs value changes in realtime
-    });
+    <h1 id="hello-world">Hello World</h1>
+    <script>
+        var myObject = {
+            sayHello: function () {
+                console.log("Hi! My name is" + this.myName);
+            },
+                myName : "Rebecca"
 
-    /*xively.feed.get( "1340702799", function( data ) {
-        console.log( data.title ); // Logs the feed title
-    });*/
-</script>
+        };
+        var secondObject = {
+            myName: "colin"
+        };
+        myObject.sayHello();
+        myObject.sayHello().call(secondObject);
+    </script>
 </body>
 </html>
