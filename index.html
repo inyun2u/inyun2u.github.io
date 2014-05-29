@@ -8,13 +8,18 @@
 <div id="map-canvas"></div>
 <script type="text/javascript">
     xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
+
     xively.datastream.subscribe( "1340702799", "sensor_reading", function( event, data ) {
+
         console.log( data.current_value ); // Logs value changes in realtime
     });
 
-    /*xively.feed.get( "1340702799", function( data ) {
+/*
+    xively.feed.get( "1340702799", function( data ) {
         console.log( data.title ); // Logs the feed title
-    });*/
+    });
+
+    */
 </script>
 </body>
 </html>
