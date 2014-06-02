@@ -3,23 +3,69 @@
 <head>
     <script src="jquery-2.1.1.js"></script>
     <script src="xivelyjs-1.0.4.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yChqrSsbs&sensor=false"></script>
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map-canvas { height: 100% }
+    </style>
+
+
 </head>
 <body>
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(36.397, 127.644),
+            zoom: 8
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 <div id="map-canvas"></div>
 <script type="text/javascript">
+
     xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
-
-    xively.datastream.subscribe( "1340702799", "sensor_reading", function( event, data ) {
-
-        console.log( data.current_value ); // Logs value changes in realtime
-    });
-
-/*
     xively.feed.get( "1340702799", function( data ) {
         console.log( data.title ); // Logs the feed title
+        console.log( data.id );
+        console.log(data.location.lat);
+        console.log(data.location.lon);
+        console.log( data.datastreams );
+        for (var i=0;i<data.datastreams.length;i++){
+            console.log( data.datastreams[i].id );
+            console.log( data.datastreams[i].current_value );
+        }
+
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(data.location.lat,data.location.lon),
+            title:"Hello World!"});
     });
 
-    */
+
+
+
+
+    xively.setKey("QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay");
+    xively.feed.get( "1358642428", function( data ) {
+        console.log( data.title ); // Logs the feed title
+        console.log( data.id );
+        console.log(data.location.lat);
+        console.log(data.location.lon);
+        console.log( data.datastreams );
+        for (var i=0;i<data.datastreams.length;i++){
+            console.log( data.datastreams[i].id );
+            console.log( data.datastreams[i].current_value );
+        }
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(data.location.lat,data.location.lon),
+            title:"Hello World!"});
+    });
+
 </script>
 </body>
 </html>
