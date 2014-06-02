@@ -27,6 +27,7 @@
 <div id="map-canvas"></div>
 <script type="text/javascript">
 
+
     xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
     xively.feed.get( "1340702799", function( data ) {
         console.log( data.title ); // Logs the feed title
@@ -38,7 +39,6 @@
             console.log( data.datastreams[i].id );
             console.log( data.datastreams[i].current_value );
         }
-
         marker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(data.location.lat,data.location.lon),
