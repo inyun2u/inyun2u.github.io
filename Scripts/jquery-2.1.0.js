@@ -1,3 +1,4 @@
+/// <reference path="../Solution1/packages/jQuery.2.1.0/Content/Scripts/jquery-2.1.0-vsdoc.js" />
 /*!
  * jQuery JavaScript Library v2.1.0
  * http://jquery.com/

@@ -1,3 +1,4 @@
+/// <reference path="Solution1/packages/jQuery.2.1.0/Content/Scripts/jquery-2.1.0-vsdoc.js" />
 /**
  * Created by inyun2u on 14. 5. 19.
  */// xively-gmaps
@@ -6,9 +7,9 @@
 // http://xively.github.com/xively-gmaps/
 // BSD 3-Clause license
 
-var xivelyGmaps = (function ($) {
+var xivelygmaps = (function ($) {
     "use strict";
-
+    
     var methods,
         APIendpoint = "https://api.xively.com/v2/",
         WSendpoint = "wss://api.xively.com:8080/",
