@@ -1,41 +1,71 @@
-﻿<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Xively Gmaps Example</title>
-    <meta name="description" content="Xively Gmaps Example">
-    <meta name="author" content="Xively Ltd.">
-    <style>
-        html, body, #map-canvas {
-            height: 80%;
-            margin: 0px;
-            padding: 0px;
-        }
+    <script src="jquery-2.1.1.js"></script>
+    <script src="xivelyjs-1.0.4.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yChqrSsbs&sensor=false"></script>
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map-canvas { height: 100% }
     </style>
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--순서주의-->
-    
-    <script src="Solution1/packages/jQuery-vsdoc.2.1.0/content/Scripts/jquery-2.1.0-vsdoc.js"></script>
-    
-    <script src="Solution1/packages/jQuery.2.1.0/Content/Scripts/jquery-2.1.0.js"></script>
-    
-    <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <!--<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelygmaps-0.1.1.min.js"></script>-->
-    <script src="xivelygmaps.js"></script>
-
-
-
-    <!--<script src="xivelygmap1.js"></script>-->
 
 </head>
 <body>
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(36.397, 127.644),
+            zoom: 8
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 <div id="map-canvas"></div>
-    
+<script type="text/javascript">
 
+    xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
+    xively.feed.get( "1340702799", function( data ) {
+        console.log( data.title ); // Logs the feed title
+        console.log( data.id );
+        console.log(data.location.lat);
+        console.log(data.location.lon);
+        console.log( data.datastreams );
+        for (var i=0;i<data.datastreams.length;i++){
+            console.log( data.datastreams[i].id );
+            console.log( data.datastreams[i].current_value );
+        }
+
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(data.location.lat,data.location.lon),
+            title:"Hello World!"});
+    });
+
+
+
+
+
+    xively.setKey("QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay");
+    xively.feed.get( "1358642428", function( data ) {
+        console.log( data.title ); // Logs the feed title
+        console.log( data.id );
+        console.log(data.location.lat);
+        console.log(data.location.lon);
+        console.log( data.datastreams );
+        for (var i=0;i<data.datastreams.length;i++){
+            console.log( data.datastreams[i].id );
+            console.log( data.datastreams[i].current_value );
+        }
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(data.location.lat,data.location.lon),
+            title:"Hello World!"});
+    });
+
+</script>
 </body>
 </html>
