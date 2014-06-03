@@ -26,6 +26,8 @@
 
 <div id="map-canvas"></div>
 <script type="text/javascript">
+
+    // device information
     var devices =[
         {
             feed:"1358642428",
@@ -49,6 +51,8 @@
     var obj;
     var feed;
     var key;
+
+    //finind feed of same feed id
     function findWithAttr(array, attr, value) {
         for(var i = 0; i < array.length; i += 1) {
             if(array[i][attr] === value) {
@@ -60,17 +64,15 @@
 
 
     var setMarker = function( data ) {
-        console.log("==============setmarker=================");
-        console.log(data.id);
-        console.log(data.datastreams[0].current_value);
-
-        console.log("finding feed of " + data.id + " in feeds");
+        //get feed from the saved with the id of data received
         myIndex=findWithAttr(feeds,"id",data.id);
-        console.log("myindex is "+myIndex);
+        //for making marker
         myLocation =new google.maps.LatLng(data.location.lat,data.location.lon);
+        //if we haven't feed of the id yet
         if(myIndex==-1){
+            //save feed
             feeds.push(data);
-            console.log("none");
+            //make marker
             marker = new google.maps.Circle({
                         strokeColor: '#FF0000',
                         strokeOpacity: 0.8,
@@ -83,32 +85,27 @@
                         radius: Math.sqrt(data.datastreams[0].current_value) * 500
                     }
             );
-            console.log("marker made");
+            //save marker to separate array
+            //for deleting when it is changed
             markers.push(marker);
-            console.log("is marker same with the one of array:");
-            console.log(markers[markers.lastIndexOf(marker)]==marker);
             values.push(data.datastreams[0].current_value);
-
         }else{
-            console.log("already has feed");
+            //if we have saved the feed before
 
             if(feeds[myIndex].datastreams[0].current_value==data.datastreams[0].current_value) {
-
-
-                console.log("no change");
-               // markers[markerIndex].setMap(null);
-
+                //if value is same with the value saved before
+                //do nothing
             }else{
-                console.log("feed "+ myIndex + " is changed from "+ feeds[myIndex].datastreams[0].current_value);
-                console.log(" into "+data.datastreams[0].current_value);
-
+                //but if sensor value is changed
+                //delete the feed from feeds array
                 feeds.splice(myIndex,1);
+                //push new feed
                 feeds.push(data);
+                //detach marker from map
                 markers[myIndex].setMap(null);
+                //delete marker from markers array
                 markers.splice(myIndex,1);
-                console.log("removed");
-
-
+                //make new marker
                 marker = new google.maps.Circle({
                             strokeColor: '#FF0000',
                             strokeOpacity: 0.8,
@@ -121,23 +118,17 @@
                             radius: Math.sqrt(data.datastreams[0].current_value) * 100
                         }
                 );
-                console.log("marker made");
+                //and push the new marker to merkers array
                 markers.push(marker);
-                console.log("is marker same with the one of array:");
-                console.log(markers[markers.lastIndexOf(marker)]==marker);
                 values.push(data.datastreams[0].current_value);
-
-
             }
-
             locations.push(myLocation);
         }
-
-
     };
 
-    setInterval(function () {
 
+    //call setMarker with interval of 3secs.
+    setInterval(function () {
             obj = devices[j];
             key = obj.key;
             feed = obj.feed;
@@ -147,11 +138,7 @@
             if(j>=devices.length){
                 j=0;
             }
-
     },3000)
-
-
-
 </script>
 </body>
 </html>
