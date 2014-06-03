@@ -26,45 +26,131 @@
 
 <div id="map-canvas"></div>
 <script type="text/javascript">
-
-
-    xively.setKey("6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS");
-    xively.feed.get( "1340702799", function( data ) {
-        console.log( data.title ); // Logs the feed title
-        console.log( data.id );
-        console.log(data.location.lat);
-        console.log(data.location.lon);
-        console.log( data.datastreams );
-        for (var i=0;i<data.datastreams.length;i++){
-            console.log( data.datastreams[i].id );
-            console.log( data.datastreams[i].current_value );
+    var devices =[
+        {
+            feed:"1358642428",
+            key:"QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay"
         }
-        marker = new google.maps.Marker({
-            map: map,
-            position: new google.maps.LatLng(data.location.lat,data.location.lon),
-            title:"Hello World!"});
-    });
-
-
-
-
-
-    xively.setKey("QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay");
-    xively.feed.get( "1358642428", function( data ) {
-        console.log( data.title ); // Logs the feed title
-        console.log( data.id );
-        console.log(data.location.lat);
-        console.log(data.location.lon);
-        console.log( data.datastreams );
-        for (var i=0;i<data.datastreams.length;i++){
-            console.log( data.datastreams[i].id );
-            console.log( data.datastreams[i].current_value );
+        ,
+        {
+            feed:"1340702799",
+            key:"6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS"
         }
-        marker = new google.maps.Marker({
-            map: map,
-            position: new google.maps.LatLng(data.location.lat,data.location.lon),
-            title:"Hello World!"});
-    });
+    ];
+    var markers=[];
+    var feeds=[];
+    var locations=[];
+    var values =[];
+    var markerIndex;
+    var myLocation;
+    var marker;
+    var myIndex;
+    var j=0;
+    var obj;
+    var feed;
+    var key;
+    function findWithAttr(array, attr, value) {
+        for(var i = 0; i < array.length; i += 1) {
+            if(array[i][attr] === value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    var setMarker = function( data ) {
+        console.log("==============setmarker=================");
+        console.log(data.id);
+        console.log(data.datastreams[0].current_value);
+
+        console.log("finding feed of " + data.id + " in feeds");
+        myIndex=findWithAttr(feeds,"id",data.id);
+        console.log("myindex is "+myIndex);
+        myLocation =new google.maps.LatLng(data.location.lat,data.location.lon);
+        if(myIndex==-1){
+            feeds.push(data);
+            console.log("none");
+            marker = new google.maps.Circle({
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.35,
+                        map:map,
+                        center: myLocation,
+                        title: data.datastreams[0].current_value,
+                        radius: Math.sqrt(data.datastreams[0].current_value) * 500
+                    }
+            );
+            console.log("marker made");
+            markers.push(marker);
+            console.log("is marker same with the one of array:");
+            console.log(markers[markers.lastIndexOf(marker)]==marker);
+            values.push(data.datastreams[0].current_value);
+
+        }else{
+            console.log("already has feed");
+
+            if(feeds[myIndex].datastreams[0].current_value==data.datastreams[0].current_value) {
+
+
+                console.log("no change");
+               // markers[markerIndex].setMap(null);
+
+            }else{
+                console.log("feed "+ myIndex + " is changed from "+ feeds[myIndex].datastreams[0].current_value);
+                console.log(" into "+data.datastreams[0].current_value);
+
+                feeds.splice(myIndex,1);
+                feeds.push(data);
+                markers[myIndex].setMap(null);
+                markers.splice(myIndex,1);
+                console.log("removed");
+
+
+                marker = new google.maps.Circle({
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.35,
+                            map:map,
+                            center: myLocation,
+                            title: data.datastreams[0].current_value,
+                            radius: Math.sqrt(data.datastreams[0].current_value) * 100
+                        }
+                );
+                console.log("marker made");
+                markers.push(marker);
+                console.log("is marker same with the one of array:");
+                console.log(markers[markers.lastIndexOf(marker)]==marker);
+                values.push(data.datastreams[0].current_value);
+
+
+            }
+
+            locations.push(myLocation);
+        }
+
+
+    };
+
+    setInterval(function () {
+
+            obj = devices[j];
+            key = obj.key;
+            feed = obj.feed;
+            xively.setKey(key);
+            xively.feed.get(feed,setMarker);
+            j++;
+            if(j>=devices.length){
+                j=0;
+            }
+
+    },3000)
+
+
 
 </script>
 </body>
