@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>index.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(169,183,198); }
+.s3 { color: rgb(165,194,97); }
+.s4 { color: rgb(204,120,50); }
+.s5 { color: rgb(152,118,170); }
+.s6 { color: rgb(104,151,187); }
+.s7 { color: rgb(255,198,109); }
+.s8 { color: rgb(204,120,50); font-weight: bold; }
+.s9 { color: rgb(106,135,89); }
+.s10 { color: rgb(128,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+index.html</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">&lt;!DOCTYPE </span><span class="s1">html</span><span class="s0">&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;html&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;head&gt;</span><span class="s2"> 
+    </span><span class="s0">&lt;script </span><span class="s1">src=</span><span class="s3">&quot;jquery-2.1.1.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span><span class="s2"> 
+    </span><span class="s0">&lt;script </span><span class="s1">src=</span><span class="s3">&quot;xivelyjs-1.0.4.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span><span class="s2"> 
+    </span><span class="s0">&lt;script </span><span class="s1">type=</span><span class="s3">&quot;text/javascript&quot;</span><span class="s0"> 
+</span><span class="s1">src=</span><span class="s3">&quot;http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yChqrSsbs&amp;sensor=false&quot;</span><span class="s0">&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;/script&gt;</span><span class="s2"> 
+    </span><span class="s0">&lt;style </span><span class="s1">type=</span><span class="s3">&quot;text/css&quot;</span><span class="s0">&gt;</span><span class="s2"> 
+        </span><span class="s4">html </span><span class="s2">{ </span><span class="s5">height</span><span class="s2">: </span><span class="s6">100</span><span class="s2">% } 
+        </span><span class="s4">body </span><span class="s2">{ </span><span class="s5">height</span><span class="s2">: </span><span class="s6">100</span><span class="s2">%</span><span class="s4">; </span><span class="s5">margin</span><span class="s2">: </span><span class="s6">0</span><span class="s4">; </span><span class="s5">padding</span><span class="s2">: </span><span class="s6">0 </span><span class="s2">} 
+        </span><span class="s7">#map-canvas </span><span class="s2">{ </span><span class="s5">height</span><span class="s2">: </span><span class="s6">100</span><span class="s2">% } 
+    </span><span class="s0">&lt;/style&gt;</span><span class="s2"> 
+ 
+ 
+</span><span class="s0">&lt;/head&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;body&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;script </span><span class="s1">type=</span><span class="s3">&quot;text/javascript&quot;</span><span class="s0">&gt;</span><span class="s2"> 
+    </span><span class="s8">function </span><span class="s2">initialize() { 
+        </span><span class="s8">var </span><span class="s2">mapOptions = { 
+            center: </span><span class="s8">new </span><span class="s2">google.maps.LatLng(</span><span class="s6">36.397</span><span class="s4">, </span><span class="s6">127.644</span><span class="s2">)</span><span class="s4">,</span><span class="s2"> 
+            zoom: </span><span class="s6">8</span><span class="s2"> 
+        }</span><span class="s4">;</span><span class="s2"> 
+        map = </span><span class="s8">new </span><span class="s2">google.maps.Map(document.getElementById(</span><span class="s9">&quot;map-canvas&quot;</span><span class="s2">)</span><span class="s4">,</span><span class="s2">mapOptions)</span><span class="s4">;</span><span class="s2"> 
+    } 
+    google.maps.event.addDomListener(window</span><span class="s4">, </span><span class="s9">'load'</span><span class="s4">, </span><span class="s2">initialize)</span><span class="s4">;</span><span class="s2"> 
+</span><span class="s0">&lt;/script&gt;</span><span class="s2"> 
+ 
+</span><span class="s0">&lt;div </span><span class="s1">id=</span><span class="s3">&quot;map-canvas&quot;</span><span class="s0">&gt;&lt;/div&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;script </span><span class="s1">type=</span><span class="s3">&quot;text/javascript&quot;</span><span class="s0">&gt;</span><span class="s2"> 
+ 
+    </span><span class="s10">// device information</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">devices =[ 
+        { 
+            feed:</span><span class="s9">&quot;1358642428&quot;</span><span class="s4">,</span><span class="s2"> 
+            key:</span><span class="s9">&quot;QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay&quot;</span><span class="s2"> 
+        } 
+        </span><span class="s4">,</span><span class="s2"> 
+        { 
+            feed:</span><span class="s9">&quot;1340702799&quot;</span><span class="s4">,</span><span class="s2"> 
+            key:</span><span class="s9">&quot;6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS&quot;</span><span class="s2"> 
+        } 
+    ]</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">markers=[]</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">feeds=[]</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">locations=[]</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">values =[]</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">markerIndex</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">myLocation</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">marker</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">myIndex</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">j=</span><span class="s6">0</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">obj</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">feed</span><span class="s4">;</span><span class="s2"> 
+    </span><span class="s8">var </span><span class="s2">key</span><span class="s4">;</span><span class="s2"> 
+ 
+    </span><span class="s10">//finind feed of same feed id</span><span class="s2"> 
+    </span><span class="s8">function </span><span class="s2">findWithAttr(array</span><span class="s4">, </span><span class="s2">attr</span><span class="s4">, </span><span class="s2">value) { 
+        </span><span class="s8">for</span><span class="s2">(</span><span class="s8">var </span><span class="s2">i = </span><span class="s6">0</span><span class="s4">; </span><span class="s2">i &lt; array.length</span><span class="s4">; </span><span class="s2">i += </span><span class="s6">1</span><span class="s2">) { 
+            </span><span class="s8">if</span><span class="s2">(array[i][attr] === value) { 
+                </span><span class="s8">return </span><span class="s2">i</span><span class="s4">;</span><span class="s2"> 
+            } 
+        } 
+        </span><span class="s8">return </span><span class="s2">-</span><span class="s6">1</span><span class="s4">;</span><span class="s2"> 
+    } 
+ 
+ 
+    </span><span class="s8">var </span><span class="s2">setMarker = </span><span class="s8">function</span><span class="s2">( data ) { 
+        </span><span class="s10">//get feed from the saved with the id of data received</span><span class="s2"> 
+        myIndex=findWithAttr(feeds</span><span class="s4">,</span><span class="s9">&quot;id&quot;</span><span class="s4">,</span><span class="s2">data.id)</span><span class="s4">;</span><span class="s2"> 
+        </span><span class="s10">//for making marker</span><span class="s2"> 
+        myLocation =</span><span class="s8">new </span><span class="s2">google.maps.LatLng(data.location.lat</span><span class="s4">,</span><span class="s2">data.location.lon)</span><span class="s4">;</span><span class="s2"> 
+        </span><span class="s10">//if we haven't feed of the id yet</span><span class="s2"> 
+        </span><span class="s8">if</span><span class="s2">(myIndex==-</span><span class="s6">1</span><span class="s2">){ 
+            </span><span class="s10">//save feed</span><span class="s2"> 
+            feeds.push(data)</span><span class="s4">;</span><span class="s2"> 
+            </span><span class="s10">//make marker</span><span class="s2"> 
+            marker = </span><span class="s8">new </span><span class="s2">google.maps.Circle({ 
+                        strokeColor: </span><span class="s9">'#FF0000'</span><span class="s4">,</span><span class="s2"> 
+                        strokeOpacity: </span><span class="s6">0.8</span><span class="s4">,</span><span class="s2"> 
+                        strokeWeight: </span><span class="s6">2</span><span class="s4">,</span><span class="s2"> 
+                        fillColor: </span><span class="s9">'#FF0000'</span><span class="s4">,</span><span class="s2"> 
+                        fillOpacity: </span><span class="s6">0.35</span><span class="s4">,</span><span class="s2"> 
+                        map:map</span><span class="s4">,</span><span class="s2"> 
+                        center: myLocation</span><span class="s4">,</span><span class="s2"> 
+                        title: data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value</span><span class="s4">,</span><span class="s2"> 
+                        radius: Math.sqrt(data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value) * </span><span class="s6">500</span><span class="s2"> 
+                    } 
+            )</span><span class="s4">;</span><span class="s2"> 
+            </span><span class="s10">//save marker to separate array</span><span class="s2"> 
+            </span><span class="s10">//for deleting when it is changed</span><span class="s2"> 
+            markers.push(marker)</span><span class="s4">;</span><span class="s2"> 
+            values.push(data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value)</span><span class="s4">;</span><span class="s2"> 
+        }</span><span class="s8">else</span><span class="s2">{ 
+            </span><span class="s10">//if we have saved the feed before</span><span class="s2"> 
+ 
+            </span><span class="s8">if</span><span class="s2">(feeds[myIndex].datastreams[</span><span class="s6">0</span><span class="s2">].current_value==data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value) { 
+                </span><span class="s10">//if value is same with the value saved before</span><span class="s2"> 
+                </span><span class="s10">//do nothing</span><span class="s2"> 
+            }</span><span class="s8">else</span><span class="s2">{ 
+                </span><span class="s10">//but if sensor value is changed</span><span class="s2"> 
+                </span><span class="s10">//delete the feed from feeds array</span><span class="s2"> 
+                feeds.splice(myIndex</span><span class="s4">,</span><span class="s6">1</span><span class="s2">)</span><span class="s4">;</span><span class="s2"> 
+                </span><span class="s10">//push new feed</span><span class="s2"> 
+                feeds.push(data)</span><span class="s4">;</span><span class="s2"> 
+                </span><span class="s10">//detach marker from map</span><span class="s2"> 
+                markers[myIndex].setMap(</span><span class="s8">null</span><span class="s2">)</span><span class="s4">;</span><span class="s2"> 
+                </span><span class="s10">//delete marker from markers array</span><span class="s2"> 
+                markers.splice(myIndex</span><span class="s4">,</span><span class="s6">1</span><span class="s2">)</span><span class="s4">;</span><span class="s2"> 
+                </span><span class="s10">//make new marker</span><span class="s2"> 
+                marker = </span><span class="s8">new </span><span class="s2">google.maps.Circle({ 
+                            strokeColor: </span><span class="s9">'#FF0000'</span><span class="s4">,</span><span class="s2"> 
+                            strokeOpacity: </span><span class="s6">0.8</span><span class="s4">,</span><span class="s2"> 
+                            strokeWeight: </span><span class="s6">2</span><span class="s4">,</span><span class="s2"> 
+                            fillColor: </span><span class="s9">'#FF0000'</span><span class="s4">,</span><span class="s2"> 
+                            fillOpacity: </span><span class="s6">0.35</span><span class="s4">,</span><span class="s2"> 
+                            map:map</span><span class="s4">,</span><span class="s2"> 
+                            center: myLocation</span><span class="s4">,</span><span class="s2"> 
+                            title: data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value</span><span class="s4">,</span><span class="s2"> 
+                            radius: Math.sqrt(data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value) * </span><span class="s6">100</span><span class="s2"> 
+                        } 
+                )</span><span class="s4">;</span><span class="s2"> 
+                </span><span class="s10">//and push the new marker to merkers array</span><span class="s2"> 
+                markers.push(marker)</span><span class="s4">;</span><span class="s2"> 
+                values.push(data.datastreams[</span><span class="s6">0</span><span class="s2">].current_value)</span><span class="s4">;</span><span class="s2"> 
+            } 
+            locations.push(myLocation)</span><span class="s4">;</span><span class="s2"> 
+        } 
+    }</span><span class="s4">;</span><span class="s2"> 
+ 
+ 
+    </span><span class="s10">//call setMarker with interval of 3secs.</span><span class="s2"> 
+    setInterval(</span><span class="s8">function </span><span class="s2">() { 
+            obj = devices[j]</span><span class="s4">;</span><span class="s2"> 
+            key = obj.key</span><span class="s4">;</span><span class="s2"> 
+            feed = obj.feed</span><span class="s4">;</span><span class="s2"> 
+            xively.setKey(key)</span><span class="s4">;</span><span class="s2"> 
+            xively.feed.get(feed</span><span class="s4">,</span><span class="s2">setMarker)</span><span class="s4">;</span><span class="s2"> 
+            j++</span><span class="s4">;</span><span class="s2"> 
+            </span><span class="s8">if</span><span class="s2">(j&gt;=devices.length){ 
+                j=</span><span class="s6">0</span><span class="s4">;</span><span class="s2"> 
+            } 
+    }</span><span class="s4">,</span><span class="s6">3000</span><span class="s2">) 
+</span><span class="s0">&lt;/script&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;/body&gt;</span><span class="s2"> 
+</span><span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
