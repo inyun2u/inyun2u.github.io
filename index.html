@@ -1,149 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <title>Heatmaps</title>
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+        #panel {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            margin-left: -180px;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+        }
+    </style>
     <script src="jquery-2.1.1.js"></script>
     <script src="xivelyjs-1.0.4.js"></script>
-    <script type="text/javascript"
-src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yChqrSsbs&sensor=false">
-</script>
-    <style type="text/css">
-        html { height: 100% }
-        body { height: 100%; margin: 0; padding: 0 }
-        #map-canvas { height: 100% }
-    </style>
-
-
-</head>
-<body>
-<script type="text/javascript">
-    function initialize() {
-        var mapOptions = {
-            center: new google.maps.LatLng(36.397, 127.644),
-            zoom: 8
-        };
-        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
-<div id="map-canvas"></div>
-<script type="text/javascript">
-
-    // device information
-    var devices =[
-        {
-            feed:"1358642428",
-            key:"QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay"
-        }
-        ,
-        {
-            feed:"1340702799",
-            key:"6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS"
-        }
-    ];
-    var markers=[];
-    var feeds=[];
-    var locations=[];
-    var values =[];
-    var markerIndex;
-    var myLocation;
-    var marker;
-    var myIndex;
-    var j=0;
-    var obj;
-    var feed;
-    var key;
-
-    //find feed of same feed id
-    function findWithAttr(array, attr, value) {
-        for(var i = 0; i < array.length; i += 1) {
-            if(array[i][attr] === value) {
-                return i;
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script>
+        // Adding 500 Data Points
+        var map, pointarray, heatmap,obj,key,feed;
+        var locations=[];
+        var devices =[
+            {
+                feed:"1358642428",
+                key:"QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay"
             }
-        }
-        return -1;
-    }
-
-
-    var setMarker = function( data ) {
-        //get feed from the saved with the id of data received
-        myIndex=findWithAttr(feeds,"id",data.id);
-        //for making marker
-        myLocation =new google.maps.LatLng(data.location.lat,data.location.lon);
-        //if we haven't feed of the id yet
-        if(myIndex==-1){
-            //save feed
-            feeds.push(data);
-            //make marker
-            marker = new google.maps.Circle({
-                        strokeColor: '#FF0000',
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        fillColor: '#FF0000',
-                        fillOpacity: 0.35,
-                        map:map,
-                        center: myLocation,
-                        title: data.datastreams[0].current_value,
-                        radius: Math.sqrt(data.datastreams[0].current_value) * 500
-                    }
-            );
-            //save marker to separate array
-            //for deleting when it is changed
-            markers.push(marker);
-            values.push(data.datastreams[0].current_value);
-        }else{
-            //if we have saved the feed before
-
-            if(feeds[myIndex].datastreams[0].current_value==data.datastreams[0].current_value) {
-                //if value is same with the value saved before
-                //do nothing
-            }else{
-                //but if sensor value is changed
-                //delete the feed from feeds array
-                feeds.splice(myIndex,1);
-                //push new feed
-                feeds.push(data);
-                //detach marker from map
-                markers[myIndex].setMap(null);
-                //delete marker from markers array
-                markers.splice(myIndex,1);
-                //make new marker
-                marker = new google.maps.Circle({
-                            strokeColor: '#FF0000',
-                            strokeOpacity: 0.8,
-                            strokeWeight: 2,
-                            fillColor: '#FF0000',
-                            fillOpacity: 0.35,
-                            map:map,
-                            center: myLocation,
-                            title: data.datastreams[0].current_value,
-                            radius: Math.sqrt(data.datastreams[0].current_value) * 100
-                        }
-                );
-                //and push the new marker to merkers array
-                markers.push(marker);
-                values.push(data.datastreams[0].current_value);
+            ,
+            {
+                feed:"1340702799",
+                key:"6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS"
             }
+        ];
+
+
+
+
+        var SetLocation = function( data ) {
+            //get feed from the saved with the id of data received
+            //for making marker
+            myLocation =new google.maps.LatLng(data.location.lat,data.location.lon);
             locations.push(myLocation);
+            //if we haven't feed of the id yet
+            console.log("pushedlocation");
+
+        };
+
+
+
+
+        function initialize() {
+            var mapOptions = {
+                zoom: 13,
+                center: new google.maps.LatLng(37.774546, -122.433523),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+
+            obj = devices[0];
+            key = obj.key;
+            feed = obj.feed;
+            xively.setKey(key);
+            xively.feed.get(feed,SetLocation);
+
+            obj = devices[1];
+            key = obj.key;
+            feed = obj.feed;
+            xively.setKey(key);
+            xively.feed.get(feed,SetLocation);
+
+            var pointArray = new google.maps.MVCArray(locations);
+
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: pointArray
+            });
+
+            heatmap.setMap(map);
         }
-    };
 
+        function toggleHeatmap() {
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
 
-    //call setMarker with interval of 3secs.
+        function changeGradient() {
+            var gradient = [
+                'rgba(0, 255, 255, 0)',
+                'rgba(0, 255, 255, 1)',
+                'rgba(0, 191, 255, 1)',
+                'rgba(0, 127, 255, 1)',
+                'rgba(0, 63, 255, 1)',
+                'rgba(0, 0, 255, 1)',
+                'rgba(0, 0, 223, 1)',
+                'rgba(0, 0, 191, 1)',
+                'rgba(0, 0, 159, 1)',
+                'rgba(0, 0, 127, 1)',
+                'rgba(63, 0, 91, 1)',
+                'rgba(127, 0, 63, 1)',
+                'rgba(191, 0, 31, 1)',
+                'rgba(255, 0, 0, 1)'
+            ];
+            heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+        }
 
-    obj = devices[0];
-    key = obj.key;
-    feed = obj.feed;
-    xively.setKey(key);
-    xively.feed.get(feed,setMarker);
+        function changeRadius() {
+            heatmap.set('radius', heatmap.get('radius') ? null : 20);
+        }
 
-    obj = devices[1];
-    key = obj.key;
-    feed = obj.feed;
-    xively.setKey(key);
-    xively.feed.get(feed,setMarker);
+        function changeOpacity() {
+            heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+        }
 
+        google.maps.event.addDomListener(window, 'load', initialize);
 
-</script>
+    </script>
+</head>
+
+<body>
+<div id="panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change gradient</button>
+    <button onclick="changeRadius()">Change radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+</div>
+<div id="map-canvas"></div>
 </body>
 </html>
