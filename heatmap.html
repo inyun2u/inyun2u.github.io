@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Heatmaps</title>
+<style>
+    html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+    }
+    #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+    }
+</style>
+<script src="jquery-2.1.1.js"></script>
+<script src="xivelyjs-1.0.4.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+<script>
+// Adding 500 Data Points
+var map, pointarray, heatmap,obj,key,feed;
+var locations=[];
+var devices =[
+    {
+        feed:"1358642428",
+        key:"QuHWV9Uzh9VxpBRxMmyeK2Shf8J3v1WKDhRgjPLx48g6kEay"
+    }
+    ,
+    {
+        feed:"1340702799",
+        key:"6x9rs1UD4w8DRqmaDZEagvBEnmHaegALrbR36V4ybspipOsS"
+    }
+];
+
+
+
+
+var SetLocation = function( data ) {
+    //get feed from the saved with the id of data received
+    //for making marker
+    myLocation =new google.maps.LatLng(data.location.lat,data.location.lon);
+    locations.push(myLocation);
+    //if we haven't feed of the id yet
+    console.log("pushedlocation");
+
+};
+
+
+
+
+function initialize() {
+    var mapOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(37.774546, -122.433523),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+    obj = devices[0];
+    key = obj.key;
+    feed = obj.feed;
+    xively.setKey(key);
+    xively.feed.get(feed,SetLocation);
+
+    obj = devices[1];
+    key = obj.key;
+    feed = obj.feed;
+    xively.setKey(key);
+    xively.feed.get(feed,SetLocation);
+
+    var pointArray = new google.maps.MVCArray(locations);
+
+    heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray
+    });
+
+    heatmap.setMap(map);
+}
+
+function toggleHeatmap() {
+    heatmap.setMap(heatmap.getMap() ? null : map);
+}
+
+function changeGradient() {
+    var gradient = [
+        'rgba(0, 255, 255, 0)',
+        'rgba(0, 255, 255, 1)',
+        'rgba(0, 191, 255, 1)',
+        'rgba(0, 127, 255, 1)',
+        'rgba(0, 63, 255, 1)',
+        'rgba(0, 0, 255, 1)',
+        'rgba(0, 0, 223, 1)',
+        'rgba(0, 0, 191, 1)',
+        'rgba(0, 0, 159, 1)',
+        'rgba(0, 0, 127, 1)',
+        'rgba(63, 0, 91, 1)',
+        'rgba(127, 0, 63, 1)',
+        'rgba(191, 0, 31, 1)',
+        'rgba(255, 0, 0, 1)'
+    ];
+    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+}
+
+function changeRadius() {
+    heatmap.set('radius', heatmap.get('radius') ? null : 20);
+}
+
+function changeOpacity() {
+    heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+</head>
+
+<body>
+<div id="panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change gradient</button>
+    <button onclick="changeRadius()">Change radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+</div>
+<div id="map-canvas"></div>
+</body>
+</html>

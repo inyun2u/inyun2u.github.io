@@ -54,7 +54,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yC
     var feed;
     var key;
 
-    //finind feed of same feed id
+    //find feed of same feed id
     function findWithAttr(array, attr, value) {
         for(var i = 0; i < array.length; i += 1) {
             if(array[i][attr] === value) {
@@ -130,17 +130,20 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD5kVOArBDhdFRuKzGvCRUs70yC
 
 
     //call setMarker with interval of 3secs.
-    setInterval(function () {
-            obj = devices[j];
-            key = obj.key;
-            feed = obj.feed;
-            xively.setKey(key);
-            xively.feed.get(feed,setMarker);
-            j++;
-            if(j>=devices.length){
-                j=0;
-            }
-    },3000)
+
+    obj = devices[0];
+    key = obj.key;
+    feed = obj.feed;
+    xively.setKey(key);
+    xively.feed.get(feed,setMarker);
+
+    obj = devices[1];
+    key = obj.key;
+    feed = obj.feed;
+    xively.setKey(key);
+    xively.feed.get(feed,setMarker);
+
+
 </script>
 </body>
 </html>
